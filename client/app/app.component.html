@@ -1,30 +1,28 @@
-
- 
 	<nav class="navbar navbar-dark bg-primary">
-			<div class="nav navbar-nav">
-				<a routerLink="/" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-					<i class="fa fa-home"></i> Home
-				</a>
-				<a routerLink="/cheats" class="nav-item nav-link" routerLinkActive="active">
-					<i class="fa fa-list"></i> Cheats
-				</a>
-				<a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-					<i class="fa fa-sign-in"></i> Login
-				</a>
-				<a routerLink="/register" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
-					<i class="fa fa-user-plus"></i> Register
-				</a>
-				<a routerLink="/account" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
-					<i class="fa fa-user"></i> Account ({{auth.currentUser.username}})
-				</a>
-				<a routerLink="/admin" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
-					<i class="fa fa-lock"></i> Admin
-				</a>
-				<a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
-					<i class="fa fa-sign-out"></i> Logout
-				</a>
-			</div>
-		</nav>
+		<div class="nav navbar-nav">
+			<a routerLink="/" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+				<i class="fa fa-home"></i> Home
+			</a>
+			<a routerLink="/cheats" class="nav-item nav-link" routerLinkActive="active">
+				<i class="fa fa-list"></i> Cheats
+			</a>
+			<a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
+				<i class="fa fa-sign-in"></i> Login
+			</a>
+			<a routerLink="/register" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
+				<i class="fa fa-user-plus"></i> Register
+			</a>
+			<a routerLink="/account" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+				<i class="fa fa-user"></i> Account ({{auth.currentUser.username}})
+			</a>
+			<a routerLink="/admin" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+				<i class="fa fa-lock"></i> Admin
+			</a>
+			<a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+				<i class="fa fa-sign-out"></i> Logout
+			</a>
+		</div>
+	</nav>
     <div class="container-fluid">
       	<div class="row">
         	<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
@@ -55,6 +53,7 @@
 				</ul>
 			</nav>
 			<main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+				A Simple (on going project)
 				<router-outlet></router-outlet>
 			</main>
       	</div>
