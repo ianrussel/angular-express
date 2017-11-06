@@ -41,6 +41,7 @@
 			"scripts": [
 				"assets/global/plugins/jquery.min.js",
 				"assets/global/plugins/bootstrap/js/bootstrap.min.js",
+				"assets/global/plugins/jquery-ui/jquery-ui.min.js",
 				"assets/global/plugins/js.cookie.min.js",
 				"assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js",
 				"assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
@@ -60,7 +61,6 @@
 				"assets/global/plugins/jquery-notific8/jquery.notific8.min.js",
 				"assets/pages/scripts/ui-notific8.js",
 				"assets/pages/scripts/components-editors.min.js",
-				"assets/global/plugins/jquery-ui/jquery-ui.min.js",
 				"assets/pages/scripts/ui-modals.min.js",
 				"../node_modules/tether/dist/js/tether.min.js"
 			],

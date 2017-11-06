@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
 		this.cheatService.getNames().subscribe(
 			res => {
 				this.cheaterNames = res;
-				console.log('from app');
 			},
 			error => console.log(error)
 		);

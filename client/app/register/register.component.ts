@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { ToastComponent } from '../shared/toast/toast.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
 	selector: 'app-register',
@@ -33,7 +34,8 @@ export class RegisterComponent implements OnInit {
 	constructor(private formBuilder: FormBuilder,
 							private router: Router,
 							public toast: ToastComponent,
-							private userService: UserService) { }
+							private userService: UserService,
+							public auth: AuthService) { }
 
 	ngOnInit() {
 		this.registerForm = this.formBuilder.group({

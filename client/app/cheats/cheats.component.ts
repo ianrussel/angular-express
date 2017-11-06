@@ -23,28 +23,13 @@ export class CheatsComponent implements OnInit {
 	nameParam: string;
 	private sub;
 	selectedName = null;
-	// addCheatForm: FormGroup;
-	// title = new FormControl('', Validators.required);
-	// code = new FormControl('', Validators.required);
-	// description = new FormControl('', Validators.required);
-	// name = new FormControl('', Validators.required);
-	// updated_by = this.auth.currentUser.username;
 
 	constructor(private cheatService: CheatService,
-		// private formBuilder: FormBuilder,
 		public toast: ToastComponent,
 		private route: ActivatedRoute,
 		private auth: AuthService,
 		private router: Router) { }
 	ngOnInit() {
-		// this.addCheatForm = this.formBuilder.group({
-		// 	title: this.title,
-		// 	code: this.code,
-		// 	description: this.description,
-		// 	name: this.name,
-		// 	updated_by: this.updated_by,
-		// 	date_updated: new Date()
-		// });
 		this.sub = this.route.params.subscribe(params => {
 			this.nameParam = params['name'];
 			this.getCheatsWithParam(this.nameParam);
@@ -109,6 +94,10 @@ export class CheatsComponent implements OnInit {
 		if (!this.auth.loggedIn) {
 			this.router.navigate(['/login']);
 		} else {
+			if(this.auth.currentUser.role !== 'admin') {
+				this.toast.setMessage('Oops you are not permitted because your role is insufficient', 'warning');
+				return false;
+			}
 			if (window.confirm('Are you sure you want to permanently delete this item?')) {
 				this.cheatService.deleteCheat(cheat).subscribe(
 					res => {
