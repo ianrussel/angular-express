@@ -1,6 +1,8 @@
-<div *ngIf="message.body" class="alert alert-{{message.type}} alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong>Message:</strong> {{message.body}}
+<div  *ngIf="message.body" class="jquery-notific8-container top right" style="z-index: 11500;">
+	<div class="jquery-notific8-notification teal" id="jquery-notific8-notification-1" style="display: block;">
+		<div class="jquery-notific8-close-sticky">
+			<span>close x</span>
+		</div>
+		<div class="jquery-notific8-message">{{message.body}}</div>
+	</div>
 </div>

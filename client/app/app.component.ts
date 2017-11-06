@@ -1,12 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 
+import { CheatService } from './services/cheat.service';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+	selector: 'app-root',
+	templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+	cheaterNames = [];
+	constructor(public auth: AuthService, private cheatService: CheatService) { }
 
-  constructor(public auth: AuthService) { }
-
+	ngOnInit() {
+		this.getNames();
+	}
+	getNames() {
+		this.cheatService.getNames().subscribe(
+			res => {
+				this.cheaterNames = res;
+				console.log('from app');
+			},
+			error => console.log(error)
+		);
+	}
 }

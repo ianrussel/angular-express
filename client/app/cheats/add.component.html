@@ -1,0 +1,64 @@
+<app-toast [message]="toast.message"></app-toast>
+<div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXTRAS PORTLET-->
+            <div class="portlet light form-fit bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class=" icon-layers font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">Add Cheat</span>
+                    </div>
+                </div>
+                <div class="portlet-body form" *ngIf="!isEditing">
+                    <form id="fuck" class="form-horizontal form-bordered" [formGroup]="addCheatForm" (ngSubmit)="addCheat()">
+                        <div class="form-body">
+                            <div class="form-group last">
+                                <label class="control-label col-md-2">Title</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" name="title" formControlName="title" placeholder="Title">
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-2">Description</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" name="description" formControlName="description" placeholder="Description">
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-2">Default Editor</label>
+                                <div class="col-md-10">
+                                    <!-- <div name="code" id="summernote_1" formControlName="code"> </div> -->
+                                    <textarea name="code" id="" cols="30" rows="10" formControlName="code"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-2">Select Cheater</label>
+                                <div class="col-md-10">
+                                    <select name="name" class="form-control" [ngModel] = "name" formControlName="name">
+                                        <option value="" selected disabled>Name</option>
+                                        <option  *ngFor="let type of cheaterNames" [value]="type">{{type}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-2">Or Add Cheater</label>
+                                <div class="col-md-10">
+                                    <input class="form-control" type="text" name="name" [ngModel] = "selectedName" formControlName="name" placeholder="Or add Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <button type="submit" class="btn green" [disabled]="!addCheatForm.valid">
+                                        <i class="fa fa-check"></i> Submit</button>
+                                    <button type="button" class="btn default">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    

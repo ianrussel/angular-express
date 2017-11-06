@@ -1,25 +1,56 @@
-<div class="card">
-  <h4 class="card-header">About</h4>
-  <div class="card-block">
-    <ul>
-      <li><b>Author:</b> <a href="https://github.com/ianrussel" target="_blank">Me</a></li>
-      <li><b>GitHub:</b> <a href="https://github.com/ianrussel/angular-express" target="_blank">project repository</a></li>
-      <li><b>This project uses the MEAN stack:</b></li>
-      <ul>
-        <li><a href="http://www.mongoosejs.com" target="_blank"><b>M</b>ongoose.js</a> (<a href="https://www.mongodb.com" target="_blank">MongoDB</a>)</li>
-        <li><a href="http://www.expressjs.com" target="_blank"><b>E</b>xpress.js</a></li>
-        <li><a href="https://www.angular.io" target="_blank"><b>A</b>ngular 2+</a></li>
-        <li><a href="https://www.nodejs.org" target="_blank"><b>N</b>ode.js</a></li>
-      </ul>
-      <li><b>Other tools and technologies used:</b></li>
-      <ul>
-        <li><a href="https://cli.angular.io" target="_blank">Angular CLI</a></li>
-        <li><a href="http://www.getbootstrap.com" target="_blank">Bootstrap</a></li>
-        <li><a href="http://www.fontawesome.io" target="_blank">Font Awesome</a></li>
-        <li><a href="https://jwt.io" target="_blank">JSON Web Token</a></li>
-        <li><a href="https://github.com/auth0/angular2-jwt" target="_blank">Angular 2 JWT</a></li>
-        <li><a href="https://github.com/dcodeIO/bcrypt.js" target="_blank">Bcrypt.js</a></li>
-      </ul>
-    </ul>
-  </div>
+<div class="row">
+	<div class="col-md-6">
+		<div class="portlet light bordered" id="blockui_sample_1_portlet_body">
+			<div class="portlet-title">
+				<div class="caption">
+					<span class="caption-subject font-green-sharp sbold">About This Project</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<p>
+					<b>Author:</b> <a href="https://github.com/ianrussel" target="_blank"class="btn btn-outline sbold blue-madison tooltips" data-original-title="Gwapo" id="blockui_sample_1_1"> Ian Russel Adem </a>
+				</p>
+				<p class="socicons">
+					Fork Me On  <a href="https://github.com/ianrussel/angular-express" target="_blank" class="socicon-btn socicon-btn-circle socicon-lg socicon-solid bg-red bg-hover-grey-salsa font-white bg-hover-white socicon-github tooltips" data-original-title="https://github.com/ianrussel/angular-express"></a>
+				</p>
+				<b>This project uses the MEAN stack:</b>
+				<p>
+					<a href="http://www.mongoosejs.com" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_3"> <b>M</b>ongoose.js</a> 
+					<a href="http://www.nodejs.org" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_3"> <b>N</b>ode.js</a> 
+				</p>
+				<p>
+					<a href="http://www.expressjs.com" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> <b>E</b>xpress.js</a>
+					<a href="http://www.angular.io" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> <b>A</b>nguar 2+</a>
+				</p>
+				<b>Other tools and technologies used:</b>
+				<p>
+					<a href="https://cli.angular.io" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> Angular CLI</a>
+					<a href="http://www.getbootstrap.com" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> Bootstrap</a>
+				</p>
+				<p>
+					<a href="http://www.fontawesome.io" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> Font Awesome</a>
+					<a href="https://jwt.io" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> Angular 2 JWT</a>
+					<a href="https://github.com/dcodeIO/bcrypt.js" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4">Bcrypt.js</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="portlet light bordered" id="blockui_sample_1_portlet_body">
+			<div class="portlet-title">
+				<div class="caption">
+					<span class="caption-subject font-green-sharp sbold">Cheats</span>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<span *ngIf="cheaterNames.length === 0">
+					No Cheats Available
+					<a class="btn btn-outline sbold green-haze" routerLink="/addNewCheat"><i class="fa fa-plus"></i>Add</a>
+				</span>
+				<p *ngFor="let cheater of cheaterNames">
+					<a [routerLink]="['/cheats', cheater]" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4">{{cheater}}</a>
+				</p>
+			</div>
+		</div>
+	</div>
 </div>

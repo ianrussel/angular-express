@@ -2,7 +2,7 @@
 
 <app-toast [message]="toast.message"></app-toast>
 
-<div class="card" *ngIf="!isLoading">
+<!--div class="card" *ngIf="!isLoading">
 	<h4 class="card-header">Current cheats ({{cheats.length}})</h4>
 	<div class="card-block">
 		<table class="table table-bordered table-striped">
@@ -33,6 +33,7 @@
 				</tr>  
 			</tbody>
 			<tbody *ngIf="isEditing">
+				{{ cheaterNames | json }}
 				<tr>
 					<td colspan="4">
 						<form class="form-inline" #form="ngForm" (ngSubmit)="editCheat(cheat)" style="display:inline">
@@ -46,8 +47,12 @@
 								<input class="form-control" type="text" name="description" [(ngModel)]="cheat.description" placeholder="Desctiption" required>
 							</div>
 							<div class="form-group">
-									<input class="form-control" type="text" name="name" [(ngModel)]="cheat.name" placeholder="Desctiption" required>
-								</div>
+								<select name="name" class="form-control" [ngModel] = "name">
+									<option value="" selected disabled>Name</option>
+									<option  *ngFor="let type of cheaterNames" [value]="type">{{type}}</option>
+								</select>
+								<input class="form-control" type="text" name="name" [ngModel] = "selectedName" placeholder="Or add Name">
+							</div>
 							<button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Save</button>
 						</form>
 						<button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Cancel</button>
@@ -56,30 +61,97 @@
 			</tbody>
 		</table>
 	</div>
+</div-->
+<div class="note note-info">
+	<p> 
+		Current cheats ({{cheats.length}})
+	</p>
 </div>
-
-<div class="card" *ngIf="!isEditing">
-	<h4 class="card-header">Add new cheat</h4>
-	<div class="card-block">
-		<form class="form-inline" [formGroup]="addCheatForm" (ngSubmit)="addCheat()" style="text-align:center">
-			<div class="form-group">
-				<input class="form-control" type="text" name="title" formControlName="title" placeholder="Title">
+<div class="row" *ngIf="!isLoading">
+	<div class="col-md-6" *ngFor="let cheat of cheats">
+		<div class="portlet solid grey-cascade">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-code"></i>
+					<span class="caption-subject bold font-white-gallery uppercase"> {{cheat.title}} </span>
+					<span class="caption-subject bold font-white-gallery shit"> ({{ cheat.description}}....)</span>
+				</div>
+				<div class="tools">
+					<a href="javascript:;" class="collapse"> </a>
+					<a href="" class="fullscreen"> </a>
+				</div>
+				<div class="actions">
+					<button class="btn default btn-sm" (click)="deleteCheat(cheat)">
+						<i class="fa fa-remove icon-black"></i> Delete 
+					</button>
+					<button class="btn green btn-outline sbold" (click)="enableEditing(cheat)" data-toggle="modal" href="#draggable">
+						<i class="fa fa-pencil icon-black"></i> Edit 
+					</button>
+				</div>
 			</div>
-			<div class="form-group">
-				<input class="form-control" type="text" name="code" formControlName="code" placeholder="Code">
+			<div class="portlet-body"> 
+				<pre>{{cheat.code}}</pre>
 			</div>
-			<div class="form-group">
-				<input class="form-control" type="text" name="description" formControlName="description" placeholder="Description">
+		</div>
+		<div class="portlet light">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-code"></i>
+					<span class="caption-subject bold font-grey-gallery uppercase"> {{cheat.title}} </span>
+				</div>
+				<div class="tools">
+					<a href="" class="collapse"> </a>
+					<a (click)="enableEditing(cheat)" data-toggle="modal" href="#draggable" class="config"></a>
+					<a href="" class="reload"> </a>
+					<a href="" class="fullscreen"> </a>
+					<a class="remove" (click)="deleteCheat(cheat)"></a>
+				</div>
 			</div>
-			<div class="form-group">
-				<select name="name" class="form-control" [ngModel] = "name" formControlName="name">
-					<option value="" selected disabled>Name</option>
-					<option  *ngFor="let type of cheaterNames" [value]="type">{{type}}</option>
-				</select>
-				<input class="form-control" type="text" name="name" [ngModel] = "selectedName" formControlName="name" placeholder="Or add Name">
+			<div class="portlet-body">
+				<h5>{{ cheat.description }}...</h5>
+					<pre>{{ cheat.code }}</pre>
 			</div>
-			<button class="btn btn-primary" type="submit" [disabled]="!addCheatForm.valid"><i class="fa fa-floppy-o"></i> Add</button>
-		</form>
+		</div>
+	</div>	
+	<div *ngIf="isEditing" class="modal fade draggable-modal" id="draggable" tabindex="-1" role="basic" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+					<h4 class="modal-title">{{cheat.name}}</h4>
+				</div>
+				<div class="modal-body">
+					<form class="" #form="ngForm" (ngSubmit)="editCheat(cheat)">
+						<div class="form-group">
+							<input class="form-control" type="text" name="title" [(ngModel)]="cheat.title" placeholder="Title" required>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="code" [(ngModel)]="cheat.code" placeholder="Code" required>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" name="description" [(ngModel)]="cheat.description" placeholder="Desctiption" required>
+						</div>
+						<!-- <div class="form-group">
+							<select name="name" class="form-control" [ngModel] = "name">
+								<option value="" selected disabled>Name</option>
+								<option  *ngFor="let type of cheaterNames" [value]="type">{{type}}</option>
+							</select>
+						</div> -->
+						<div class="form-group">
+							<input class="form-control" type="text" name="name" [ngModel] = "selectedName" placeholder="Or add Name" readonly>
+						</div>
+						<button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid" data-dismiss="modal"><i class="fa fa-floppy-o"></i> Save</button>
+						<button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Cancel</button>
+					</form>
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+					<button type="button" class="btn green">Save changes</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+
 
