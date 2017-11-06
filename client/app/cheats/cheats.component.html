@@ -69,30 +69,6 @@
 </div>
 <div class="row" *ngIf="!isLoading">
 	<div class="col-md-6" *ngFor="let cheat of cheats">
-		<div class="portlet solid grey-cascade">
-			<div class="portlet-title">
-				<div class="caption">
-					<i class="fa fa-code"></i>
-					<span class="caption-subject bold font-white-gallery uppercase"> {{cheat.title}} </span>
-					<span class="caption-subject bold font-white-gallery shit"> ({{ cheat.description}}....)</span>
-				</div>
-				<div class="tools">
-					<a href="javascript:;" class="collapse"> </a>
-					<a href="" class="fullscreen"> </a>
-				</div>
-				<div class="actions">
-					<button class="btn default btn-sm" (click)="deleteCheat(cheat)">
-						<i class="fa fa-remove icon-black"></i> Delete 
-					</button>
-					<button class="btn green btn-outline sbold" (click)="enableEditing(cheat)" data-toggle="modal" href="#draggable">
-						<i class="fa fa-pencil icon-black"></i> Edit 
-					</button>
-				</div>
-			</div>
-			<div class="portlet-body"> 
-				<pre>{{cheat.code}}</pre>
-			</div>
-		</div>
 		<div class="portlet light">
 			<div class="portlet-title">
 				<div class="caption">
