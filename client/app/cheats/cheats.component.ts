@@ -92,7 +92,6 @@ export class CheatsComponent implements OnInit {
 
 	editCheat(cheat) {
 		if (!this.auth.loggedIn) {
-			alert('not logged');
 			this.router.navigate(['/login']);
 		} else {
 			this.cheatService.editCheat(cheat).subscribe(

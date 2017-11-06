@@ -1,8 +1,8 @@
 <app-loading [condition]="isLoading"></app-loading>
 <app-toast [message]="toast.message"></app-toast>
 <div class="note note-info">
-	<p>
-		Current cheats ({{cheats.length}})
+	<p class="uppercase">
+		Current cheats ({{cheats.length}}) | {{nameParam}}
 	</p>
 </div>
 <div *ngIf="isEditing" class="col-md-6" id="fuck">
