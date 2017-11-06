@@ -1,71 +1,37 @@
 <app-loading [condition]="isLoading"></app-loading>
-
 <app-toast [message]="toast.message"></app-toast>
-
-<!--div class="card" *ngIf="!isLoading">
-	<h4 class="card-header">Current cheats ({{cheats.length}})</h4>
-	<div class="card-block">
-		<table class="table table-bordered table-striped">
-			<thead class="thead-default">
-				<tr>
-					<th>Title</th>
-					<th>Code</th>
-					<th>Description</th>
-					<th>Name</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody *ngIf="cheats.length === 0">
-				<tr>
-					<td colspan="4">There are no cheats in the DB. Add a new cheat below.</td>
-				</tr>  
-			</tbody>
-			<tbody *ngIf="!isEditing">
-				<tr *ngFor="let cheat of cheats">
-					<td>{{cheat.title}}</td>
-					<td>{{cheat.code}}</td>
-					<td>{{cheat.description}}</td>
-					<td>{{cheat.name}}</td>
-					<td>
-						<button class="btn btn-sm btn-warning" (click)="enableEditing(cheat)"><i class="fa fa-pencil"></i> Edit</button> 
-						<button class="btn btn-sm btn-danger" (click)="deleteCheat(cheat)"><i class="fa fa-trash"></i> Delete</button>
-					</td>
-				</tr>  
-			</tbody>
-			<tbody *ngIf="isEditing">
-				{{ cheaterNames | json }}
-				<tr>
-					<td colspan="4">
-						<form class="form-inline" #form="ngForm" (ngSubmit)="editCheat(cheat)" style="display:inline">
-							<div class="form-group">
-								<input class="form-control" type="text" name="title" [(ngModel)]="cheat.title" placeholder="Title" required>
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="text" name="code" [(ngModel)]="cheat.code" placeholder="Code" required>
-							</div>
-							<div class="form-group">
-								<input class="form-control" type="text" name="description" [(ngModel)]="cheat.description" placeholder="Desctiption" required>
-							</div>
-							<div class="form-group">
-								<select name="name" class="form-control" [ngModel] = "name">
-									<option value="" selected disabled>Name</option>
-									<option  *ngFor="let type of cheaterNames" [value]="type">{{type}}</option>
-								</select>
-								<input class="form-control" type="text" name="name" [ngModel] = "selectedName" placeholder="Or add Name">
-							</div>
-							<button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid"><i class="fa fa-floppy-o"></i> Save</button>
-						</form>
-						<button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Cancel</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div-->
 <div class="note note-info">
-	<p> 
+	<p>
 		Current cheats ({{cheats.length}})
 	</p>
+</div>
+<div *ngIf="isEditing" class="col-md-6" id="fuck">
+	<form role="form" #form="ngForm" (ngSubmit)="editCheat(cheat)">
+		<div class="form-body">
+			<div class="form-group form-md-line-input">
+				<input type="text" name="title" [(ngModel)]="cheat.title" class="form-control" id="form_control_1" placeholder="Enter Title">
+				<label for="form_control_1">Title</label>
+				<span class="help-block">Title.</span>
+			</div>
+			<div class="form-group form-md-line-input">
+				<textarea [(ngModel)]="cheat.code" name="code" class="form-control" rows="3" placeholder="Enter Code"></textarea>
+				<label for="form_control_1">Code</label>
+			</div>
+			<div class="form-group form-md-line-input">
+				<textarea [(ngModel)]="cheat.description" name="description" class="form-control" rows="3" placeholder="Enter Description"></textarea>
+				<label for="form_control_1">Description</label>
+			</div>
+			<div class="form-group form-md-line-input">
+				<input type="text" name="name" readonly [(ngModel)]="cheat.name" class="form-control" id="form_control_1">
+				<label for="form_control_1">Name</label>
+				<span class="help-block">Name</span>
+			</div>
+		</div>
+		<div class="form-actions noborder">
+			<button type="submit" [disabled]="!form.form.valid" data-dismiss="modal" class="btn blue">Submit</button>
+			<button type="button" (click)="cancelEditing()" data-dismiss="modal" class="btn default">Cancel</button>
+		</div>
+	</form>
 </div>
 <div class="row" *ngIf="!isLoading">
 	<div class="col-md-6" *ngFor="let cheat of cheats">
@@ -77,7 +43,7 @@
 				</div>
 				<div class="tools">
 					<a href="" class="collapse"> </a>
-					<a (click)="enableEditing(cheat)" data-toggle="modal" href="#draggable" class="config"></a>
+					<a (click)="enableEditing(cheat)" data-toggle="modal" href="#basic" class="config"></a>
 					<a href="" class="reload"> </a>
 					<a href="" class="fullscreen"> </a>
 					<a class="remove" (click)="deleteCheat(cheat)"></a>
@@ -88,46 +54,5 @@
 					<pre>{{ cheat.code }}</pre>
 			</div>
 		</div>
-	</div>	
-	<div *ngIf="isEditing" class="modal fade draggable-modal" id="draggable" tabindex="-1" role="basic" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-					<h4 class="modal-title">{{cheat.name}}</h4>
-				</div>
-				<div class="modal-body">
-					<form class="" #form="ngForm" (ngSubmit)="editCheat(cheat)">
-						<div class="form-group">
-							<input class="form-control" type="text" name="title" [(ngModel)]="cheat.title" placeholder="Title" required>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" name="code" [(ngModel)]="cheat.code" placeholder="Code" required>
-						</div>
-						<div class="form-group">
-							<input class="form-control" type="text" name="description" [(ngModel)]="cheat.description" placeholder="Desctiption" required>
-						</div>
-						<!-- <div class="form-group">
-							<select name="name" class="form-control" [ngModel] = "name">
-								<option value="" selected disabled>Name</option>
-								<option  *ngFor="let type of cheaterNames" [value]="type">{{type}}</option>
-							</select>
-						</div> -->
-						<div class="form-group">
-							<input class="form-control" type="text" name="name" [ngModel] = "selectedName" placeholder="Or add Name" readonly>
-						</div>
-						<button class="btn btn-sm btn-primary" type="submit" [disabled]="!form.form.valid" data-dismiss="modal"><i class="fa fa-floppy-o"></i> Save</button>
-						<button class="btn btn-sm btn-warning" (click)="cancelEditing()"><i class="fa fa-times"></i> Cancel</button>
-					</form>
-					
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-					<button type="button" class="btn green">Save changes</button>
-				</div>
-			</div>
-		</div>
 	</div>
 </div>
-
-
