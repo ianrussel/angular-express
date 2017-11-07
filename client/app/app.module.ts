@@ -17,6 +17,7 @@ import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './cheats/add.component';
+import { HighlightModule } from 'ngx-highlightjs';
 
 @NgModule({
 	declarations: [
@@ -33,7 +34,8 @@ import { AddComponent } from './cheats/add.component';
 	],
 	imports: [
 		RoutingModule,
-		SharedModule
+		SharedModule,
+		HighlightModule.forRoot({ theme: 'darkula'})
 	],
 	providers: [
 		AuthService,

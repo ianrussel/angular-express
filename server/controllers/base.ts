@@ -58,7 +58,6 @@ abstract class BaseCtrl {
 
 	// Update by id
 	update = (req, res) => {
-		console.log(req.body, 'body');
 		this.model.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
 			if (err) { return console.error(err); }
 			res.sendStatus(200);
