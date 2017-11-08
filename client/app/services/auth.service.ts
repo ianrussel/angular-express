@@ -16,6 +16,7 @@ export class AuthService {
 	    redirectUri: 'http://localhost:4200/callback',
         scope: 'openid user_id name nickname email picture'
 	});
+	userProfile: any;
 	loggedIn = false;
 	isAdmin = false;
 
@@ -71,6 +72,21 @@ export class AuthService {
     	return new Date().getTime() < expiresAt;
   	}
 
+	public getProfile(cb): void {
+  		const accessToken = localStorage.getItem('access_token');
+		if (!accessToken) {
+		    throw new Error('Access token must exist to fetch profile');
+		}
+
+  		const self = this;
+  		this.auth0.client.userInfo(accessToken, (err, profile) => {
+    		if (profile) {
+      			self.userProfile = profile;
+    		}
+    		cb(err, profile);
+  		});
+	}
+	
 	login(emailAndPassword) {
 		return this.userService.login(emailAndPassword).map(res => res.json()).map(
 			res => {

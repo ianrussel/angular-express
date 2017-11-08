@@ -10,6 +10,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
+import { AppComponent1 } from './app.component1';
 import { CheatsComponent } from './cheats/cheats.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterComponent } from './register/register.component';
@@ -28,10 +29,12 @@ import { SettingComponent } from './setting/setting.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AllCheatsComponent } from './cheats/all-cheats/all-cheats.component';
 import { CallbackComponent } from './callback/callback.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
+		AppComponent1,
 		CheatsComponent,
 		AboutComponent,
 		RegisterComponent,
@@ -48,7 +51,8 @@ import { CallbackComponent } from './callback/callback.component';
 		SettingComponent,
 		SidebarComponent,
 		AllCheatsComponent,
-		CallbackComponent
+		CallbackComponent,
+		ProfileComponent
 	],
 	imports: [
 		RoutingModule,

@@ -4,9 +4,9 @@ import { AuthService } from './services/auth.service';
 
 @Component({
 	selector: 'app-root',
-	templateUrl: './app.component.html'
+	templateUrl: './app.component1.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent1 implements OnInit {
 
 	constructor(public auth: AuthService) { }
 

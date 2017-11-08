@@ -12,7 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './cheats/add.component';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
-import { CallbackComponent } from './callback/callback.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -26,6 +26,7 @@ const routes: Routes = [
 	{ path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
 	{ path: 'addNewCheat', component: AddComponent },
 	{ path: 'notfound', component: NotFoundComponent },
+	{ path: 'profile', component: ProfileComponent },
 	{ path: '**', redirectTo: '/notfound' }
 ];
 
