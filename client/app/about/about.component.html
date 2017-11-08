@@ -15,8 +15,8 @@
 				</p>
 				<b>This project uses the MEAN stack:</b>
 				<p>
-					<a href="http://www.mongoosejs.com" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_3"> <b>M</b>ongoose.js</a> 
-					<a href="http://www.nodejs.org" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_3"> <b>N</b>ode.js</a> 
+					<a href="http://www.mongoosejs.com" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_3"> <b>M</b>ongoose.js</a>
+					<a href="http://www.nodejs.org" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_3"> <b>N</b>ode.js</a>
 				</p>
 				<p>
 					<a href="http://www.expressjs.com" target="_blank" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4"> <b>E</b>xpress.js</a>
@@ -35,22 +35,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6">
-		<div class="portlet light bordered" id="blockui_sample_1_portlet_body">
-			<div class="portlet-title">
-				<div class="caption">
-					<span class="caption-subject font-green-sharp sbold">Cheats</span>
-				</div>
-			</div>
-			<div class="portlet-body">
-				<span *ngIf="cheaterNames.length === 0">
-					No Cheats Available
-					<a class="btn btn-outline sbold green-haze" routerLink="/addNewCheat"><i class="fa fa-plus"></i>Add</a>
-				</span>
-				<p *ngFor="let cheater of cheaterNames">
-					<a [routerLink]="['/cheats', cheater]" class="btn btn-outline sbold green-haze" id="blockui_sample_1_4">{{cheater}}</a>
-				</p>
-			</div>
-		</div>
-	</div>
+	<app-all-cheats></app-all-cheats>
 </div>

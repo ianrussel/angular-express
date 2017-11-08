@@ -4,16 +4,20 @@ import { ToastComponent } from '../shared/toast/toast.component';
 import { Router } from '@angular/router';
 import { CheatService } from '../services/cheat.service';
 import { AuthService } from '../services/auth.service';
+import { CommonService} from '../shared/common/common.service';
+import { Subscription } from 'rxjs/Subscription';
+
 @Component({
 	selector: 'app-new',
 	templateUrl: './add.component.html'
 })
 
 export class AddComponent implements OnInit {
+	private subscription: Subscription;
 	isEditing = false;
 	public cheats = [];
-	public cheaterNames = [];
 	public selectedName = null;
+	private cheaterNames = [];
 	addCheatForm: FormGroup;
 	title = new FormControl('', Validators.required);
 	code = new FormControl('', Validators.required);
@@ -26,7 +30,8 @@ export class AddComponent implements OnInit {
 		private formBuilder: FormBuilder,
 		private router: Router,
 		public toast: ToastComponent,
-		private auth: AuthService ) {}
+		private auth: AuthService,
+	 	private commonService: CommonService) {}
 
 	ngOnInit() {
 		this.addCheatForm = this.formBuilder.group({
@@ -52,6 +57,7 @@ export class AddComponent implements OnInit {
 					setTimeout(() => {
 						this.router.navigate(['/']);
 					}, 1000);
+					this.commonService.notifyOther({option: 'onAdd'})
 				},
 				error => console.log(error)
 			);
@@ -60,7 +66,7 @@ export class AddComponent implements OnInit {
 	getNames() {
 		this.cheatService.getNames().subscribe(
 			res => {
-				console.log(res, 'ato');
+				console.log(res, 'from add component');
 				this.cheaterNames = res;
 			},
 			error => console.log(error)

@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 
 import { CheatService } from '../services/cheat.service';
 import { ToastComponent } from '../shared/toast/toast.component';
+import { CommonService} from '../shared/common/common.service';
 
 @Component({
 	selector: 'app-cheats',
@@ -28,13 +29,13 @@ export class CheatsComponent implements OnInit {
 		public toast: ToastComponent,
 		private route: ActivatedRoute,
 		private auth: AuthService,
-		private router: Router) { }
+		private router: Router,
+		private commonService: CommonService) { }
 	ngOnInit() {
 		this.sub = this.route.params.subscribe(params => {
 			this.nameParam = params['name'];
 			this.getCheatsWithParam(this.nameParam);
 		});
-		this.getNames();
 	}
 
 	getCheatsWithParam(param) {
@@ -58,7 +59,9 @@ export class CheatsComponent implements OnInit {
 	}
 	getNames() {
 		this.cheatService.getNames().subscribe(
-			data => this.cheaterNames = data,
+			res => {
+				this.cheaterNames = res;
+			},
 			error => console.log(error)
 		);
 	}
@@ -79,6 +82,7 @@ export class CheatsComponent implements OnInit {
 		if (!this.auth.loggedIn) {
 			this.router.navigate(['/login']);
 		} else {
+
 			this.cheatService.editCheat(cheat).subscribe(
 				res => {
 				this.isEditing = false;
@@ -104,6 +108,7 @@ export class CheatsComponent implements OnInit {
 						const pos = this.cheats.map(elem => elem._id).indexOf(cheat._id);
 						this.cheats.splice(pos, 1);
 						this.toast.setMessage('item deleted successfully.', 'success');
+						this.commonService.notifyOther({option: 'onDeleteCheat'});
 					},
 					error => console.log(error)
 				);
