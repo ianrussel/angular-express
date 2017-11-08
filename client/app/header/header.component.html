@@ -14,28 +14,15 @@
 		</a>
 		<div class="top-menu">
 			<ul class="nav navbar-nav pull-right">
-				<!-- <li>
+				<li>
 					<a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
 						<i class="fa fa-sign-in"></i> Login
 					</a>
-				</li> -->
-				<li>
-					<a class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.isAuthenticated()" (click)="auth.logins()">
-						<i class="fa fa-sign-in"></i> Login
-					</a>
 				</li>
-				<!-- <li>
+				<li>
 					<a routerLink="/register" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
 						<i class="fa fa-user-plus"></i> Register
 					</a>
-				</li> -->
-				<li>
-					<a class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.isAuthenticated()" (click)="auth.logouts()">
-						<i class="fa fa-sign-in"></i> Logout
-					</a>
-				</li>
-				<li>
-					<a routerLink="/profile" class="naav-item nav-link" routerLinkActive="active" *ngIf="auth.isAuthenticated()">Profile</a>
 				</li>
 				<li class="dropdown dropdown-user" *ngIf="auth.loggedIn">
 					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
