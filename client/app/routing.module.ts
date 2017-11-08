@@ -12,6 +12,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './cheats/add.component';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
+import { CallbackComponent } from './callback/callback.component';
+
 
 const routes: Routes = [
 	{ path: '', component: AboutComponent },
@@ -24,7 +26,7 @@ const routes: Routes = [
 	{ path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
 	{ path: 'addNewCheat', component: AddComponent },
 	{ path: 'notfound', component: NotFoundComponent },
-	{ path: '**', redirectTo: '/notfound' },
+	{ path: '**', redirectTo: '/notfound' }
 ];
 
 @NgModule({

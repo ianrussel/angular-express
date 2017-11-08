@@ -2,7 +2,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RoutingModule } from './routing.module';
 
 import { HighlightModule } from 'ngx-highlightjs';
-import { CodemirrorModule } from 'ng2-codemirror';
 
 import { SharedModule } from './shared/shared.module';
 import { CheatService } from './services/cheat.service';
@@ -28,6 +27,7 @@ import { PagebarComponent } from './pagebar/pagebar.component';
 import { SettingComponent } from './setting/setting.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AllCheatsComponent } from './cheats/all-cheats/all-cheats.component';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
 	declarations: [
@@ -47,12 +47,12 @@ import { AllCheatsComponent } from './cheats/all-cheats/all-cheats.component';
 		PagebarComponent,
 		SettingComponent,
 		SidebarComponent,
-		AllCheatsComponent
+		AllCheatsComponent,
+		CallbackComponent
 	],
 	imports: [
 		RoutingModule,
 		SharedModule,
-		CodemirrorModule,
 		HighlightModule.forRoot({ theme: 'darkula'})
 	],
 	providers: [
