@@ -8,7 +8,6 @@ export default class CheatCtrl extends BaseCtrl {
 		const query = req.params;
 		console.log(req.params, 'params');
 		this.model.find({'$or':[{name: new RegExp(query, 'i')}, {description: new RegExp(query, 'i')}]}, (err, cheat) => {
-		//this.model.find({name: query}, (err, cheat) => {
 			if (err) {
 				return console.error(err.toString());
 			}
@@ -16,4 +15,5 @@ export default class CheatCtrl extends BaseCtrl {
 			res.json(cheat);
 		});
 	}
+
 }
