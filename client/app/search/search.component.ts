@@ -10,14 +10,15 @@ import { CheatService } from '../services/cheat.service';
     styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-
+    public values ='';
     constructor(private cheatService:
                 CheatService,
                 private router: Router,
                 private commonService: CommonService) { }
 
     ngOnInit() {}
-    onSubmit(value: any) {
+    onSubmit(value: string) {
+        this.values = value;
         this.cheatService.searchCheats(value).subscribe(
 			res => {
 				console.log(res, 'return from search');

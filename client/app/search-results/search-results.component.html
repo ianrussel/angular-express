@@ -1,31 +1,28 @@
-
-    {{ results | json }}
-    <div class="note note-info">
-        <p> Cheats {{ results.length }}</p>
-    </div>
-    <!-- <div class="row" id="sortable_portlets">
-        <div class="col-md-4 column sortable" *ngFor="let names of results">
-            <div class="portlet portlet-sortable light bg-inverse">
-                <div class="portlet-title">
-                    <div class="caption">
-                        <i class="icon-puzzle font-red-flamingo"></i>
-                        <span class="caption-subject bold font-red-flamingo uppercase"> Tools </span>
-                        <span class="caption-helper">actions...</span>
-                    </div>
-                    <div class="tools">
-                        <a href="" class="collapse"> </a>
-                        <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                        <a href="" class="reload"> </a>
-                        <a href="" class="fullscreen"> </a>
-                        <a href="" class="remove"> </a>
-                    </div>
+<div class="note note-info">
+    <p> Cheats </p>
+</div>
+<div class="row" id="sortable_portlets">
+    <div class="col-md-4 column sortable" *ngFor="let names of results">
+        <div class="portlet portlet-sortable light bg-inverse">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-puzzle font-red-flamingo"></i>
+                    <span class="caption-subject bold font-red-flamingo uppercase"> {{ names.name }} </span>
+                    <span class="caption-helper">actions...</span>
                 </div>
-                <div class="portlet-body">
-                    <h4>Heading text goes here...</h4>
-                    <p> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
-                        lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur. </p>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                    <!-- <a href="#portlet-config" data-toggle="modal" class="config"> </a> -->
+                    <a href="" class="reload"> </a>
+                    <a href="" class="fullscreen"> </a>
+                    <!-- <a href="" class="remove"> </a> -->
                 </div>
             </div>
-            <div class="portlet portlet-sortable-empty"> </div>
+            <div class="portlet-body">
+                <h4>{{ names.description }}</h4>
+                <pre>{{ names.code }}</pre>
+            </div>
         </div>
-    </div> -->
+        <div class="portlet portlet-sortable-empty"> </div>
+    </div>
+</div>
