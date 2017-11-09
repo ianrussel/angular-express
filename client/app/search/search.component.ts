@@ -17,16 +17,25 @@ export class SearchComponent implements OnInit {
                 private commonService: CommonService) { }
 
     ngOnInit() {}
-
-    onSubmit(event: any) {
-        this.cheatService.searchCheats(event.target.value).subscribe(
+    onSubmit(value: any) {
+        this.cheatService.searchCheats(value).subscribe(
 			res => {
 				console.log(res, 'return from search');
                 this.commonService.notifyOther({option: 'onSearchResult', value: res});
                 this.router.navigate(['/search-result']);
-                event.target.value = '';
+                value = '';
 			},
 			error => console.log(error.toString())
 		);
     }
+    // onSubmit(event: any) {
+    //     this.cheatService.searchCheats(event.target.value).subscribe(
+	// 		res => {
+	// 			console.log(res, 'return from search');
+    //             this.commonService.notifyOther({option: 'onSearchResult', value: res});
+    //             this.router.navigate(['/search-result']);
+	// 		},
+	// 		error => console.log(error.toString())
+	// 	);
+    // }
 }

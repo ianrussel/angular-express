@@ -16,4 +16,16 @@ export default class CheatCtrl extends BaseCtrl {
 		});
 	}
 
+	// searchCheats = (req, res ) => {
+	// 	console.log(req.query, 'params');
+	// 	const value = req.params;
+	// 	const query = this.model.find({name: value});
+	// 	query.exec((err, products) => {
+	// 		if(err) {
+	// 			return console.log(err.toString());
+	// 		}
+	// 		// console.log(products, 'products');
+	// 		res.json(products);
+	// 	})
+	// }
 }
