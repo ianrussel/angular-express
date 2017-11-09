@@ -41,4 +41,7 @@ export class CheatService {
 	getCheatsWithParam(param): Observable<any> {
 		return this.http.get(`/api/cheats/cheatsWithParams/${param}`).map(res => res.json());
 	}
+	searchCheats(param): Observable<any> {
+		return this.http.get(`/api/cheat/searchCheats/${param}`).map(res => res.json());
+	}
 }

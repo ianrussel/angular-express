@@ -13,6 +13,7 @@ import { AddComponent } from './cheats/add.component';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
 	{ path: 'addNewCheat', component: AddComponent },
 	{ path: 'notfound', component: NotFoundComponent },
 	{ path: 'profile', component: ProfileComponent },
+	{ path: 'search-result', component: SearchResultsComponent },
 	{ path: '**', redirectTo: '/notfound' }
 ];
 

@@ -25,6 +25,7 @@
 				"assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css",
 				"assets/global/plugins/cubeportfolio/css/cubeportfolio.css",
 				"assets/global/css/components-rounded.min.css",
+				"assets/global/css/components.min.css",
 				"assets/global/css/plugins.min.css",
 				"assets/pages/css/portfolio.min.css",
 				"assets/layouts/layout/css/layout.min.css",
@@ -61,6 +62,7 @@
 				"assets/pages/scripts/ui-notific8.js",
 				"assets/pages/scripts/components-editors.min.js",
 				"assets/pages/scripts/ui-modals.min.js",
+				"assets/pages/scripts/portlet-draggable.min.js",
 				"assets/global/plugins/bootstrap/js/bootstrap.min.js",
 				"../node_modules/tether/dist/js/tether.min.js"
 			],

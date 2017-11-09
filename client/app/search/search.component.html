@@ -1,0 +1,15 @@
+<!-- <form class="sidebar-search" [formGroup]="searchCheatForm" (ngSubmit)="onSubmit()">
+    <a href="javascript:;" class="remove">
+        <i class="icon-close"></i>
+    </a>
+    <div class="input-group">
+        <input type="text" #box class="form-control" name="name" formControlName="name" placeholder="Search..." id="SearchComponent">
+        <span class="input-group-btn">
+            <button class="btn submit" type="button" [disabled]="!searchCheatForm.valid">
+                <i class="icon-magnifier"></i>
+            </button>
+        </span>
+    </div>
+</form> -->
+
+search <input (keyup)="onSubmit($event)">

@@ -30,6 +30,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { AllCheatsComponent } from './cheats/all-cheats/all-cheats.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SearchComponent } from './search/search.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
 	declarations: [
@@ -52,7 +54,9 @@ import { ProfileComponent } from './profile/profile.component';
 		SidebarComponent,
 		AllCheatsComponent,
 		CallbackComponent,
-		ProfileComponent
+		ProfileComponent,
+		SearchComponent,
+		SearchResultsComponent
 	],
 	imports: [
 		RoutingModule,

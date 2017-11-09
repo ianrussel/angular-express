@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../shared/common/common.service';
-import { Subscription } from 'rxjs/Subscription';
 
 import { CheatService } from '../../services/cheat.service';
 
