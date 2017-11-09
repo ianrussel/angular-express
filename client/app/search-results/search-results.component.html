@@ -1,7 +1,10 @@
 <div class="note note-info">
-    <p> Cheats </p>
+    <p> Cheats {{ results != null && results.length > 0 ? results.length : 0}}</p>
 </div>
 <div class="row" id="sortable_portlets">
+    <div *ngIf="results != null && results.length < 1">
+        <h1>Walay Sulod Pare</h1>
+    </div>
     <div class="col-md-4 column sortable" *ngFor="let names of results">
         <div class="portlet portlet-sortable light bg-inverse">
             <div class="portlet-title">
