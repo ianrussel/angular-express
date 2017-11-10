@@ -3,9 +3,9 @@ import { CommonService } from '../shared/common/common.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+    selector: 'app-search-results',
+    templateUrl: './search-results.component.html',
+    styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
     public results = '';
@@ -20,5 +20,4 @@ export class SearchResultsComponent implements OnInit {
         	}
         })
     }
-
 }
