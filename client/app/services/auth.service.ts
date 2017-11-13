@@ -21,7 +21,7 @@ export class AuthService {
 		domain: 'ianrussel.auth0.com',
 		responseType: 'token id_token',
 		audience: 'https://ianrussel.auth0.com/userinfo',
-		redirectUri: 'http://localhost:4200/callback',
+		redirectUri: 'https://angular-ian.herokuapp.com/callback',
     	scope: 'openid profile'
 	})
 	constructor(private userService: UserService,
