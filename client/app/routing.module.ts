@@ -14,6 +14,7 @@ import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { ProfileComponent } from './profile/profile.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { CallbackComponent } from './callback/callback.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
 	{ path: 'notfound', component: NotFoundComponent },
 	{ path: 'profile', component: ProfileComponent },
 	{ path: 'search-result', component: SearchResultsComponent },
+	{ path: 'callback', component: CallbackComponent },
 	{ path: '**', redirectTo: '/notfound' }
 ];
 

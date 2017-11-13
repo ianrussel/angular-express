@@ -64,7 +64,8 @@
 				"assets/pages/scripts/ui-modals.min.js",
 				"assets/pages/scripts/portlet-draggable.min.js",
 				"assets/global/plugins/bootstrap/js/bootstrap.min.js",
-				"../node_modules/tether/dist/js/tether.min.js"
+				"../node_modules/tether/dist/js/tether.min.js",
+				"../node_modules/auth0-js/build/auth0.js"
 			],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
