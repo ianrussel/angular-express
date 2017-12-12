@@ -4,9 +4,9 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { CheatService } from '../services/cheat.service';
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+    selector: 'app-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
     cheaterNames = [];

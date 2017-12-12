@@ -1,0 +1,107 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"project": {
+		"name": "angular2-full-stack"
+	},
+	"apps": [
+		{
+			"root": "client",
+			"outDir": "dist/public",
+			"assets": [
+				"assets",
+				"assets/favicon.ico"
+			],
+			"index": "index.html",
+			"main": "main.ts",
+			"polyfills": "polyfills.ts",
+			"test": "test.ts",
+			"tsconfig": "tsconfig.app.json",
+			"testTsconfig": "tsconfig.spec.json",
+			"prefix": "app",
+			"styles": [
+				"assets/global/plugins/font-awesome/css/font-awesome.min.css",
+				"assets/global/plugins/simple-line-icons/simple-line-icons.min.css",
+				"assets/global/plugins/bootstrap/css/bootstrap.min.css",
+				"assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css",
+				"assets/global/plugins/cubeportfolio/css/cubeportfolio.css",
+				"assets/global/css/components-rounded.min.css",
+				"assets/global/css/components.min.css",
+				"assets/global/css/plugins.min.css",
+				"assets/pages/css/portfolio.min.css",
+				"assets/layouts/layout/css/layout.min.css",
+				"assets/layouts/layout/css/themes/darkblue.min.css",
+				"assets/layouts/layout/css/custom.min.css",
+				"assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css",
+				"assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css",
+				"assets/global/plugins/bootstrap-summernote/summernote.css",
+				"assets/global/plugins/socicon/socicon.css",
+				"assets/global/plugins/jquery-notific8/jquery.notific8.min.css",
+				"../node_modules/font-awesome/css/font-awesome.css",
+        		"../node_modules/simple-line-icons/css/simple-line-icons.css",
+        		"scss/style.scss",
+				"styles.scss"
+			],
+			"scripts": [
+				"assets/global/plugins/jquery.min.js",
+				"assets/global/plugins/jquery-ui/jquery-ui.min.js",
+				"assets/global/plugins/js.cookie.min.js",
+				"assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js",
+				"assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
+				"assets/global/plugins/jquery.blockui.min.js",
+				"assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js",
+				"assets/global/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js",
+				"assets/global/scripts/app.min.js",
+				"assets/pages/scripts/portfolio-1.min.js",
+				"assets/layouts/layout/scripts/layout.min.js",
+				"assets/layouts/layout/scripts/demo.min.js",
+				"assets/layouts/global/scripts/quick-sidebar.min.js",
+				"assets/pages/scripts/ui-blockui.min.js",
+				"assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js",
+				"assets/global/plugins/bootstrap-markdown/lib/markdown.js",
+				"assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js",
+				"assets/global/plugins/bootstrap-summernote/summernote.min.js",
+				"assets/global/plugins/jquery-notific8/jquery.notific8.min.js",
+				"assets/pages/scripts/ui-notific8.js",
+				"assets/pages/scripts/components-editors.min.js",
+				"assets/pages/scripts/ui-modals.min.js",
+				"assets/pages/scripts/portlet-draggable.min.js",
+				"assets/global/plugins/bootstrap/js/bootstrap.min.js",
+				"../node_modules/tether/dist/js/tether.min.js",
+				"../node_modules/auth0-js/build/auth0.js"
+			],
+			"environmentSource": "environments/environment.ts",
+			"environments": {
+				"dev": "environments/environment.ts",
+				"prod": "environments/environment.prod.ts"
+			}
+		}
+	],
+	"e2e": {
+		"protractor": {
+			"config": "./protractor.conf.js"
+		}
+	},
+	"lint": [
+		{
+			"project": "client/tsconfig.app.json",
+			"exclude": "**/node_modules/**"
+		},
+		{
+			"project": "client/tsconfig.spec.json",
+			"exclude": "**/node_modules/**"
+		},
+		{
+			"project": "e2e/tsconfig.e2e.json",
+			"exclude": "**/node_modules/**"
+		}
+	],
+	"test": {
+		"karma": {
+			"config": "./karma.conf.js"
+		}
+	},
+	"defaults": {
+		"styleExt": "scss",
+		"component": {}
+	}
+}

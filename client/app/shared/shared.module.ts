@@ -8,29 +8,29 @@ import { LoadingComponent } from './loading/loading.component';
 import { CommonService } from './common/common.service';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule
-  ],
-  exports: [
-    // Shared Modules
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    // Shared Components
-    ToastComponent,
-    LoadingComponent
-  ],
-  declarations: [
-    ToastComponent,
-    LoadingComponent
-  ],
-  providers: [
-    ToastComponent,
-    CommonService
-  ]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule
+    ],
+    exports: [
+        // Shared Modules
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        // Shared Components
+        ToastComponent,
+        LoadingComponent
+    ],
+    declarations: [
+        ToastComponent,
+        LoadingComponent
+    ],
+    providers: [
+        ToastComponent,
+        CommonService
+    ]
 })
 export class SharedModule { }

@@ -11,11 +11,10 @@ import { CheatService } from '../services/cheat.service';
 })
 export class SearchComponent implements OnInit {
     public values ='';
-    constructor(private cheatService:
-                CheatService,
-                private router: Router,
-                private commonService: CommonService) { }
-
+    constructor(
+        private cheatService: CheatService,
+        private router: Router,
+        private commonService: CommonService) { }
     ngOnInit() {}
     onSubmit(value: string) {
         this.values = value;
