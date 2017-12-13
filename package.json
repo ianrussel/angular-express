@@ -60,9 +60,9 @@
 		"simple-line-icons": "^2.4.1",
 		"tether": "1.4.3",
 		"tslint": "~5.8.0",
-		"typescript": "~2.6.2",
 		"uglify-es": "^3.2.2",
-		"zone.js": "^0.8.14"
+		"zone.js": "^0.8.14",
+		"typescript": "^2.4.2"
 	},
 	"devDependencies": {
 		"@angular/language-service": "^5.1.0",
