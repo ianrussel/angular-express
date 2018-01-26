@@ -42,7 +42,7 @@ abstract class BaseCtrl {
 				res.sendStatus(400);
 			}
 			if (err) {
-				return console.error(err);
+				res.send(err);
 			}
 			res.status(200).json(item);
 		});
@@ -59,8 +59,11 @@ abstract class BaseCtrl {
 	// Update by id
 	update = (req, res) => {
 		this.model.findOneAndUpdate({ _id: req.params.id }, req.body, (err) => {
-			if (err) { return console.error(err); }
-			res.sendStatus(200);
+			if (err) {
+				res.send(err);
+			} else {
+				res.sendStatus(200);
+			}
 		});
 	}
 
@@ -78,9 +81,10 @@ abstract class BaseCtrl {
 		this.model.distinct('name')
 		.exec(function(err, names) {
 			if (err) {
-				console.log(err);
+				res.send(err);
+			} else {
+				res.json(names);
 			}
-			res.json(names);
 		});
 	}
 

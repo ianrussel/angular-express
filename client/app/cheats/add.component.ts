@@ -31,7 +31,7 @@ export class AddComponent implements OnInit {
 		private router: Router,
 		public toast: ToastComponent,
 		private auth: AuthService,
-	 	private commonService: CommonService) {}
+		private commonService: CommonService) {}
 
 	ngOnInit() {
 		this.addCheatForm = this.formBuilder.group({
@@ -57,7 +57,7 @@ export class AddComponent implements OnInit {
 					setTimeout(() => {
 						this.router.navigate(['/']);
 					}, 1000);
-					this.commonService.notifyOther({option: 'onAdd'})
+					this.commonService.notifyOther({option: 'onAdd'});
 				},
 				error => console.log(error)
 			);
